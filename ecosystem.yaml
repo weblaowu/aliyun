@@ -21,7 +21,7 @@ deploy:
     port: '22' 
     ref: origin/master
     # 项目远程仓库地址
-    repo: git@github.com:weblaowu/qqmusic.git
+    repo: git@github.com:weblaowu/aliyun.git
     # 项目部署到服务器的目录  ，根路径下
     path: /www/music/production
     # 取消key校验
