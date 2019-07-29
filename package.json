@@ -5,10 +5,9 @@
   "main": "app.js",
   "scripts": {
     "start": "./node_modules/.bin/nodemon ./app.js",
-    "dev": "cross-env NODE_ENV=development node webpack.dev.js",
-    "prd": "pm2 start ./app.js",
-    "stop": "pm2 stop ./app.js",
-    "build": "cross-env NODE_ENV=production node webpack.prod.js"
+    "dev": "cross-env NODE_ENV=development webpack-dev-server webpack.dev.js",
+    "prd": "node ./app.js",
+    "build": "cross-env NODE_ENV=production webpack webpack.prod.js"
   },
   "keywords": [],
   "author": "",
