@@ -5,7 +5,7 @@
   "main": "app.js",
   "scripts": {
     "dev": "cross-env NODE_ENV=development webpack-dev-server webpack.dev.js",
-    "start": "pm2 start app.js",
+    "start": "node app.js",
     "build": "cross-env NODE_ENV=production webpack webpack.prod.js"
   },
   "keywords": [],
