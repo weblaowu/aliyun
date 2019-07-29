@@ -1,0 +1,32 @@
+apps:
+    # 启动脚本，入口文件
+  - script: app.js
+    name: aliyun
+    env:
+      COMMON_VARIABLE: true
+    env: 
+      NODE_ENV: development
+    # 生产环境变量
+    env_production:
+      NODE_ENV: production
+        
+#部署 
+deploy:
+  production:
+    user: root
+    #服务器IP
+    host: 
+      - 47.100.240.168
+    # 服务器端口
+    port: '22' 
+    ref: origin/master
+    # 项目远程仓库地址
+    repo: git@github.com:weblaowu/qqmusic.git
+    # 项目部署到服务器的目录  ，根路径下
+    path: /www/music/production
+    # 取消key校验
+    ssh_options: StrictHostKeyChecking=no
+    pre-deploy: git fetch --all
+    post-deploy: 'cnpm i --dev && npm run prd && pm2 startOrRestart ecosystem.yaml --env production'
+    env:
+      NODE_ENV: production
