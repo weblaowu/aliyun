@@ -27,6 +27,6 @@ deploy:
     # 取消key校验
     ssh_options: StrictHostKeyChecking=no
     pre-deploy: git fetch --all
-    post-deploy: 'cnpm i --dev && npm run prd && pm2 startOrRestart ecosystem.yaml --env production'
+    post-deploy: 'cnpm i --dev && npm run start'
     env:
       NODE_ENV: production
