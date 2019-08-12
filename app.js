@@ -9,12 +9,25 @@ const proxy = require('koa-server-http-proxy')
 
 const index = require('./routes/index')
 const users = require('./routes/users')
-const slider = require('./routes/slider')
+// const slider = require('./routes/slider')
 
 // error handler
 onerror(app)
 
 // 设置 proxy
+ 
+// 轮播数据
+app.use(
+  proxy('/musichall', {
+    target: 'http://c.y.qq.com',
+    changeOrigin: true,
+    headers: {
+      referer: 'http://c.y.qq.com/',
+      host: 'c.y.qq.com'
+    }
+  })
+)
+
 // 1. 代理 推荐热门列表
 app.use(
   proxy('/splcloud', {
@@ -122,7 +135,7 @@ app.use(async (ctx, next) => {
 // routes
 app.use(index.routes(), index.allowedMethods())
 app.use(users.routes(), users.allowedMethods())
-app.use(slider.routes(), slider.allowedMethods())
+
 
 // error-handling
 app.on('error', (err, ctx) => {

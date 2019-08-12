@@ -1,0 +1,8 @@
+
+.opt-enter[data-v-c82c6832], .opt-leave-to[data-v-c82c6832]{
+  opacity: 0;
+}
+.opt-enter.active[data-v-c82c6832], .opt-leave-active[data-v-c82c6832] {
+  transition: opacity 0.3s;
+} 
+
