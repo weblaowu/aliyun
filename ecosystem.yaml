@@ -27,6 +27,6 @@ deploy:
     # 取消key校验
     ssh_options: StrictHostKeyChecking=no
     pre-deploy: git fetch --all
-    post-deploy: 'cnpm i --dev && npm run start'
+    post-deploy: 'cnpm i'
     env:
       NODE_ENV: production
